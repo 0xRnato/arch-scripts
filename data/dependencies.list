@@ -1,4 +1,4 @@
 curl
-software-properties-common
 whiptail
 xterm
+git

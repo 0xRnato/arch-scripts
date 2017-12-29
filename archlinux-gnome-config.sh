@@ -1,11 +1,11 @@
 #!/bin/bash
-# -*- Mode: sh; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
+# -*- Mode: sh; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
 #
 # Authors:
-#   Sam Hewitt <sam@snwh.org>
-#
+#   Original project developed by: Sam Hewitt <sam@snwh.org>
+#	Arch Linux GNOME version by: Renato Neto <rnato.netoo@gmail.com>
 # Description:
-#   A set of post-installation script for Ubuntu and Ubuntu-based distributions
+#   A set of post-installation and configuration script for Arch Linux with GNOME as desktop environment
 #
 # Legal Preamble:
 #
@@ -22,7 +22,7 @@
 # this program; if not, see <https://www.gnu.org/licenses/gpl-3.0.txt>
 
 # tab width
-tabs 4
+tabs 2
 clear
 
 # Import functions
@@ -80,7 +80,7 @@ function main {
 	# Draw window
 	MAIN=$(eval `resize` && whiptail \
 		--notags \
-		--title "Ubuntu Post-Install Script" \
+		--title "Arch Linux GNOME Config Script" \
 		--menu "\nWhat would you like to do?" \
 		--cancel-button "Quit" \
 		$LINES $COLUMNS $(( $LINES - 12 )) \
@@ -119,7 +119,7 @@ function quit {
 }
 
 # Welcome message
-echo_message header "Ubuntu Post-Install Script"
+echo_message header "Arch Linux GNOME Config Script"
 # Run check
 check
 

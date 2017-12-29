@@ -1,13 +1,6 @@
-bijiben
-epiphany-browser
 gedit
-gnome-builder
 gnome-calculator
 gnome-calendar
-gnome-clocks
-gnome-disk-utility
-gnome-documents
-gnome-logs
 gnome-maps
 gnome-music
 gnome-photos
@@ -15,4 +8,9 @@ gnome-screenshot
 gnome-software
 gnome-system-monitor
 gnome-terminal
-gnome-weather
+gnome-shell
+gnome-control-center
+gnome-shell-extensions
+gnome-session
+gnome-terminal
+nautilus
