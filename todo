@@ -1,6 +1,0 @@
-echo VISUAL="nano" > .bashrc
-yaourt -S visual-studio-code-bin --noconfirm
-mkdir workspace
-git config --global user.email "rnato.netoo@gmail.com"
-git config --global user.name "Renato Neto"
-set br keyboard

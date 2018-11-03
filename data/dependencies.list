@@ -1,4 +1,6 @@
-curl
-whiptail
-xterm
+libnewt
 git
+python-pip
+curl
+linux-headers
+wget
