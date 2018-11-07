@@ -1,27 +1,21 @@
 # custom ~/.bashrc
 
-# If not running interactively, don't do anything
 case $- in
 *i*) ;;
 *) return ;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=20000
 HISTFILESIZE=20000
 
-# Alias definitions.
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-# tab completion
 if ! shopt -oq posix; then
 	if [ -f /usr/share/bash-completion/bash_completion ]; then
 		. /usr/share/bash-completion/bash_completion
@@ -38,10 +32,8 @@ if [ -f /usr/share/git/completion/git-prompt.sh ]; then
 	. /usr/share/git/completion/git-prompt.sh
 fi
 
-# keep environment pollution down
 unset safe_term match_lhs
 
-# use colours in the prompt
 [[ -f ~/.dir_colors ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
 [[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
 [[ -z ${match_lhs} ]] &&

@@ -1,43 +1,35 @@
 #!/bin/bash
 
-# Install preferred fonts
-function install_favs_fonts {
-	# Update the list of packages in 'data/favs-fonts.list' to suit your preferences
+function install_favs_fonts() {
 	install_from_list "preferred fonts" "favs-fonts" install_fonts
 }
 
-# Install Microsoft Core Fonts
-function install_mscorefonts {
+function install_mscorefonts() {
 	install_yaourt_package "Microsoft Core Fonts" "ttf-ms-fonts" install_fonts
 }
 
-# Install Emoji One
-function install_emojione {
+function install_emojione() {
 	install_yaourt_package "Emoji One" "ttf-emojione" install_fonts
 }
 
-# Install Fonts
-function install_fonts {
+function install_fonts() {
 	NAME="Fonts"
 	echo_message title "Starting ${NAME,,}..."
-	# Draw window
-	FONTS=$(eval `resize` && whiptail \
+	FONTS=$(eval $(resize) && whiptail \
 		--notags \
 		--title "Install $NAME" \
 		--menu "\nWhat would you like to do?" \
 		--ok-button "Install" \
 		--cancel-button "Go Back" \
-		$LINES $COLUMNS $(( $LINES - 12 )) \
-		'install_favs_fonts'        'Install favourite fonts' \
-		'install_mscorefonts'       'Install Microsoft core fonts' \
-		'install_emojione'          'Install Emoji One colour emoji' \
+		$LINES $COLUMNS $(($LINES - 12)) \
+		'install_favs_fonts' 'Install favourite fonts' \
+		'install_mscorefonts' 'Install Microsoft core fonts' \
+		'install_emojione' 'Install Emoji One colour emoji' \
 		3>&1 1>&2 2>&3)
-	# check exit status
 	if [ $? = 0 ]; then
 		echo_message header "Starting '$FONTS' function"
 		$FONTS
 	else
-		# Cancelled
 		echo_message info "$NAME installation cancelled."
 		main
 	fi

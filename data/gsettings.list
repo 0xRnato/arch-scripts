@@ -1,0 +1,127 @@
+gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
+gsettings set org.gnome.settings-daemon.peripherals.keyboard remember-numlock-state true
+gsettings set org.gnome.settings-daemon.peripherals.keyboard numlock-state 'on'
+gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
+gsettings set org.gnome.nautilus.preferences search-filter-time-type 'last_modified'
+gsettings set org.gnome.nautilus.preferences show-create-link true
+gsettings set org.gnome.nautilus.preferences show-delete-permanently true
+gsettings set org.gnome.nautilus.list-view default-visible-columns "['name', 'owner', 'group', 'permissions', 'date_modified', 'type', 'detailed_type', 'size']"
+gsettings set org.gnome.nautilus.list-view default-column-order "['name', 'owner', 'group', 'permissions', 'date_modified', 'type', 'detailed_type', 'size', 'where', 'date_modified_with_time', 'date_accessed', 'recency', 'starred']"
+gsettings set org.gnome.shell app-picker-view "uint32 1"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'chromium.desktop', 'slack.desktop', 'telegramdesktop.desktop', 'skypeforlinux.desktop', 'terminator.desktop', 'visual-studio-code.desktop', 'postman.desktop', 'mysql-workbench.desktop', 'mongodb-compass.desktop', 'filezilla.desktop', 'gimp.desktop', 'blender.desktop', 'libreoffice-startcenter.desktop', 'virtualbox.desktop', 'spotify.desktop', 'stremio-beta.desktop', 'gnome-control-center.desktop', 'org.gnome.tweaks.desktop', 'ca.desrt.dconf-editor.desktop']"
+gsettings set org.gnome.shell enabled-extensions "['apps-menu@gnome-shell-extensions.gcampax.github.com', 'arch-update@RaphaelRochet', 'blyr@yozoon.dev.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'github.notifications@alexandre.dufournet.gmail.com', 'hibernate-status@dromi', 'multi-monitors-add-on@spin83', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'sound-output-device-chooser@kgshank.net', 'topicons-redux@pop-planet.info', 'transmission-daemon@patapon.info', 'transparentnotification@ipaq3870', 'unlockDialogBackground@sun.wxg@gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'workspace_scroll@squgeim.com.np']"
+gsettings set org.gnome.shell disable-user-extensions false
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update notify true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update howmuch 2
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update update-cmd "terminator -e 'sh -c  \"sudo pacman -Syyyu --noconfirm; yaourt -Syyuua --noconfirm; echo Done - Press enter to exit; read\" '"
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update auto-expand-list 1
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update package-manager 'pamac-manager'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/ set org.gnome.shell.extensions.user-theme name 'Ant-Dracula-Green'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/topicons-redux@pop-planet.info/schemas/ set org.gnome.shell.extensions.topicons-redux offset 20
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/topicons-redux@pop-planet.info/schemas/ set org.gnome.shell.extensions.topicons-redux alignment 'right'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/transmission-daemon@patapon.info/schemas/ set org.gnome.shell.extensions.transmission-daemon always-show false
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/transmission-daemon@patapon.info/schemas/ set org.gnome.shell.extensions.transmission-daemon stats-numeric true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/schemas/ set org.gnome.shell.extensions.sound-output-device-chooser hide-on-single-device true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/schemas/ set org.gnome.shell.extensions.sound-output-device-chooser icon-theme 'monochrome'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83/schemas/ set org.gnome.shell.extensions.multi-monitors-add-on show-thumbnails-slider true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83/schemas/ set org.gnome.shell.extensions.multi-monitors-add-on available-indicators "['apps-menu', 'ArchUpdateIndicator', 'places-menu', 'transmission-daemon', 'drive-menu']"
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83/schemas/ set org.gnome.shell.extensions.multi-monitors-add-on show-indicator false
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83/schemas/ set org.gnome.shell.extensions.multi-monitors-add-on thumbnails-on-left-side true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/unlockDialogBackground@sun.wxg@gmail.com/schemas/ set org.gnome.shell.extensions.unlockDialogBackground picture-uri '/home/rnato/Pictures/b.png'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/unlockDialogBackground@sun.wxg@gmail.com/schemas/ set org.gnome.shell.extensions.unlockDialogBackground theme-text-dark false
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/unlockDialogBackground@sun.wxg@gmail.com/schemas/ set org.gnome.shell.extensions.unlockDialogBackground theme-background true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/unlockDialogBackground@sun.wxg@gmail.com/schemas/ set org.gnome.shell.extensions.unlockDialogBackground switch true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/ set org.gnome.shell.extensions.dash-to-dock preferred-monitor 0
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/ set org.gnome.shell.extensions.dash-to-dock multi-monitor true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/ set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/ set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/ set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/ set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DYNAMIC'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/ set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/github.notifications@alexandre.dufournet.gmail.com/schemas/ set org.gnome.shell.extensions.github.notifications token 'bc07cb12c2f32deb4fb440e793af04da06aacfaf'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/github.notifications@alexandre.dufournet.gmail.com/schemas/ set org.gnome.shell.extensions.github.notifications handle 'zRnatoNeto'
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/github.notifications@alexandre.dufournet.gmail.com/schemas/ set org.gnome.shell.extensions.github.notifications show-alert true
+gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
+gsettings --schemadir /usr/share/glib-2.0/schemas/ set org.gnome.FileRoller.Listing sort-method 'name'
+gsettings --schemadir /usr/share/glib-2.0/schemas/ set org.gnome.FileRoller.Listing name-column-width 250
+gsettings --schemadir /usr/share/glib-2.0/schemas/ set org.gnome.FileRoller.Listing sort-type 'ascending'
+gsettings --schemadir /usr/share/glib-2.0/schemas/ set org.gnome.FileRoller.Listing list-mode 'as-folder'
+gsettings --schemadir /usr/share/glib-2.0/schemas/ set org.gnome.FileRoller.Listing show-path false
+gsettings set org.gnome.desktop.interface clock-format '12h'
+gsettings set org.gnome.desktop.interface cursor-theme 'Paper'
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+gsettings set org.gnome.desktop.interface toolkit-accessibility false
+gsettings set org.gnome.desktop.interface gtk-im-module 'gtk-im-context-simple'
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+gsettings set org.gnome.desktop.interface icon-theme 'Paper'
+gsettings set org.gnome.desktop.interface gtk-theme 'Ant-Dracula-Green'
+gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.notifications application-children "['chromium', 'spotify', 'org-gnome-chromegnomeshell', 'org-gnome-nautilus', 'telegramdesktop']"
+gsettings set org.gnome.desktop.notifications show-in-lock-screen false
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/postman/ application-id 'postman.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/org-gnome-nautilus/ application-id 'org.gnome.Nautilus.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/firefox/ application-id 'firefox-developer-edition.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/skypeforlinux/ application-id 'skypeforlinux.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/telegramdesktop/ application-id 'telegramdesktop.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/gimp/ application-id 'gimp.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/visual-studio-code/ application-id 'visual-studio-code.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/gnome-network-panel/ application-id 'gnome-network-panel.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/org-gnome-software/ application-id 'org.gnome.Software.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/spotify/ application-id 'spotify.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell/ application-id 'org.gnome.ChromeGnomeShell.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/chromium/ application-id 'chromium.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/terminator/ application-id 'terminator.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/mongodb-compass/ application-id 'mongodb-compass.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/libreoffice-startcenter/ application-id 'libreoffice-startcenter.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/pamac-updater/ application-id 'pamac-updater.desktop'
+gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/stremio-beta/ application-id 'stremio-beta.desktop'
+gsettings set org.gnome.desktop.media-handling autorun-x-content-start-app "@as []"
+gsettings set org.gnome.desktop.media-handling autorun-x-content-ignore "@as []"
+gsettings set org.gnome.desktop.media-handling autorun-x-content-open-folder "@as []"
+gsettings set org.gnome.desktop.app-folders folder-children "['AudioVideo', 'Development', 'Game', 'Graphics', 'Network', 'Office', 'System-Tools']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/AudioVideo/ name 'Sound & Video'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/AudioVideo/ categories "['Sound & Video']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/AudioVideo/ apps "['spotify.desktop', 'stremio-beta.desktop', 'vlc.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Development/ name 'Programming'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Development/ categories "['Programming']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Development/ apps "['visual-studio-code.desktop', 'postman.desktop', 'mysql-workbench.desktop', 'mongodb-compass.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Game/ name 'Games'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Game/ categories "['Games']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Game/ apps "['xboard.desktop', 'gnome-sudoku.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Graphics/ name 'Graphics'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Graphics/ categories "['Graphics']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Graphics/ apps "['gimp.desktop', 'blender.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Network/ name 'Internet'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Network/ categories "['Internet']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Network/ apps "['chromium.desktop', 'firefox-developer-edition.desktop', 'slack.desktop', 'telegramdesktop.desktop', 'skypeforlinux.desktop', 'filezilla.desktop', 'transmission-gtk.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Office/ name 'Office'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Office/ categories "['Office']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Office/ apps "['libreoffice-base.desktop', 'libreoffice-calc.desktop', 'libreoffice-draw.desktop', 'libreoffice-impress.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop', 'libreoffice-xsltfilter.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/System-Tools/ name 'System Tools'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/System-Tools/ categories "['System Tools']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/System-Tools/ apps "['gnome-control-center.desktop', 'org.gnome.tweaks.desktop', 'ca.desrt.dconf-editor.desktop', 'gparted.desktop', 'htop.desktop', 'multibootusb.desktop', 'gnome-nettool.desktop', 'org.gnome.Software.desktop', 'terminator.desktop', 'org.gnome.Usage.desktop', 'org.gnome.FileRoller.desktop', 'gnome-system-monitor.desktop', 'pamac-manager.desktop', 'grub-customizer.desktop', 'pamac-updater.desktop', 'pamac-installer.desktop']"
+gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/rnato/Pictures/b.png'
+gsettings set org.gnome.desktop.search-providers sort-order "['org.gnome.Nautilus.desktop', 'chromium.desktop']"
+gsettings set org.gnome.desktop.privacy recent-files-max-age 30
+gsettings set org.gnome.desktop.privacy remove-old-temp-files true
+gsettings set org.gnome.desktop.privacy old-files-age "uint32 30"
+gsettings set org.gnome.desktop.privacy remove-old-trash-files true
+gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+gsettings set org.gnome.desktop.wm.preferences focus-mode 'click'
+gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'minimize'
+gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
+gsettings set org.gnome.desktop.datetime automatic-timezone true
+gsettings set org.gnome.desktop.background picture-uri 'file:///home/rnato/Pictures/b.png'
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br')]"
+gsettings set org.gnome.mutter workspaces-only-on-primary false
+gsettings set org.gtk.Settings.FileChooser sort-column 'name'
+gsettings set org.gtk.Settings.FileChooser clock-format '12h'
+gsettings set org.gtk.Settings.FileChooser sidebar-width 158
+gsettings set org.gtk.Settings.FileChooser window-position "(13, 11)"
+gsettings set org.gtk.Settings.FileChooser show-size-column true
+gsettings set org.gtk.Settings.FileChooser show-hidden false
+gsettings set org.gtk.Settings.FileChooser window-size "(1600, 833)"
+gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+gsettings set org.gtk.Settings.FileChooser date-format 'regular'
+gsettings set org.gtk.Settings.FileChooser sort-order 'ascending'
+gsettings set org.gtk.Settings.FileChooser location-mode 'path-bar'

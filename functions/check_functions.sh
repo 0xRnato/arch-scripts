@@ -1,28 +1,22 @@
 #!/bin/bash
 
 function check_package_installed() {
-	pacman -Qi $@ | grep "Name" &> /dev/null; echo $?
+	pacman -Qi $@ | grep "Name" &>/dev/null
+	echo $?
 }
 
-# Check if single package is installed
 # ${1} = package, ${2} = return_function
 function check_package() {
-	# echo_message header "Starting 'check_package' function"
-	# if package is not installed
 	if [ $(check_package_installed ${1}) != 0 ]; then
-		# draw window
 		if (whiptail \
 			--title "Install ${1}" \
-			--yesno "This function requires '${1}' but it is not present on your system. \n\nWould you like to install it to continue? " 10 64) then
-			# Install
+			--yesno "This function requires '${1}' but it is not present on your system. \n\nWould you like to install it to continue? " 10 64); then
 			echo_message info "Installing '${3}'..."
 			superuser_do "pacman -S ${1}"
-			# Finished
 			echo_message success "${1} is installation complete."
 			whiptail --title "Finished" --msgbox "Installation of ${1} Flatpak complete." 8 56
 			${2}
 		else
-			# Cancelled
 			echo_message info "Installation of ${1} cancelled."
 			${2}
 		fi
@@ -31,13 +25,10 @@ function check_package() {
 	fi
 }
 
-# Check which distribution the user is running
-function check_os {
+function check_os() {
 	echo_message header "Starting 'check_os' function"
 	echo_message title "Checking which OS you are using..."
-	# Variables
 	OS_NAME="Linux"
-	# Check if Linux
 	echo_message info "Current OS is: "$(uname)
 	if [[ $(uname) != "$OS_NAME" ]]; then
 		echo_message error "You don't appear to be using $OS_NAME! Aborting. :("
@@ -47,14 +38,14 @@ function check_os {
 	fi
 }
 
-# Check which distribution the user is running
-function check_distribution {
-	# check if 'lsb_release' exists
-	if [[ $(which lsb_release &>/dev/null; echo $?) != 0 ]]; then
+function check_distribution() {
+	if [[ $(
+		which lsb_release &>/dev/null
+		echo $?
+	) != 0 ]]; then
 		echo_message error "\aCan't check which distribution you are using! Aborting."
 		echo_message error " Aborting..." && sleep 3 && exit 99
 	else
-		# if Arch Linux
 		if lsb_release -ds | grep -qE '(Arch linux)'; then
 			echo 'Current distribution is: '$(lsb_release -ds)
 			echo_message success "You are using Arch Linux. :D"
@@ -64,17 +55,14 @@ function check_distribution {
 			echo_message warning "Proceeding may break your system."
 			echo_message question "Are you sure you want to continue? (Y)es, (N)o : " && read REPLY
 			case $REPLY in
-			# Positive action
-			[Yy]* )
+			[Yy]*)
 				echo_message warning "You have been warned."
 				;;
-			# Negative action
-			[Nn]* )
+			[Nn]*)
 				echo_message info "Exiting..."
 				exit 99
 				;;
-			# Error
-			* )
+			*)
 				echo_message error 'Sorry, try again.' && check_distribution
 				;;
 			esac
@@ -82,32 +70,25 @@ function check_distribution {
 	fi
 }
 
-# Check for and install if missing the required packages for this script set.
-function check_dependencies {
+function check_dependencies() {
 	echo_message header "Starting 'check_dependencies' function"
 	echo_message title "Checking if necessary dependencies are installed..."
-	# Variables
 	LIST=$(dirname "$0")'/data/dependencies.list'
-	# Check dependencies
 	for PACKAGE in $(cat $LIST); do
-		# If package is not installed
 		if [ $(check_package_installed $PACKAGE) != 0 ]; then
 			echo_message info "This script requires '$PACKAGE' and it is not present on your system."
 			echo_message question 'Would you like to install it to continue? (Y)es, (N)o : ' && read REPLY
 			case $REPLY in
-			# Positive action
-			[Yy]* )
+			[Yy]*)
 				echo_message warning "Requires root privileges"
 				sudo pacman -S $PACKAGE
 				echo_message success "Package '$PACKAGE' installed."
 				;;
-			# Negative action
-			[Nn]* )
+			[Nn]*)
 				echo_message info "Exiting..."
 				exit 99
 				;;
-			# Error
-			* )
+			*)
 				echo_message error 'Sorry, try again.' && check_dependencies
 				;;
 			esac
@@ -118,45 +99,42 @@ function check_dependencies {
 	echo_message success "All dependencies are installed. :)"
 }
 
-# Check if current user is in the sudo group
-function check_privileges {
+function check_privileges() {
 	echo_message header "Starting 'check_privileges' function"
 	echo_message title "Checking administrative privileges of current user..."
-	# Check if user is root
 	if [[ $EUID != 0 ]]; then
-		if [[ $(groups $USER | grep -q 'sudo'; echo $?) != 0 ]]; then
+		if [[ $(
+			groups $USER | grep -q 'sudo'
+			echo $?
+		) != 0 ]]; then
 			echo_message error "This user account doesn't have admin privileges."
 			echo_message info "Log in as a user with admin privileges to be able to much of these scripts.."
 			echo_message info "Exiting..."
 			sleep 5 && exit 99
 		else
-			# Current user can use 'sudo'
 			echo_message success "Current user has sudo privileges. :)"
 		fi
 	else
-		# if dependency whiptail is installed
 		if command -v whiptail 2>&1 >/dev/null; then
-			# draw window
-			if (whiptail --title "Root User" --yesno "You are logged in as the root user. This is not recommended.\n\nAre you sure you want to proceed?" 12 56) then
+			if (whiptail --title "Root User" --yesno "You are logged in as the root user. This is not recommended.\n\nAre you sure you want to proceed?" 12 56); then
 				echo_message warning "You are logged in as the root user. This is not recommended. :/"
 			else
 				echo_message info "Exiting..."
 				exit 99
 			fi
 		else
-			# text-based warning
 			echo_message warning "You are logged in as the root user. This is not recommended. :/"
 			read -p "Are you sure you want to proceed? [y/N] " REPLY
 			REPLY=${REPLY:-n}
 			case $REPLY in
-			[Yy]* )
+			[Yy]*)
 				echo_message info "Proceeding..."
 				;;
-			[Nn]* )
+			[Nn]*)
 				echo_message info "Exiting..."
 				exit 99
 				;;
-			* )
+			*)
 				echo_message error 'Sorry, try again.' && check_privileges
 				;;
 			esac
@@ -164,14 +142,9 @@ function check_privileges {
 	fi
 }
 
-# Run system checks
-function system_checks {
-	# Check OS
+function system_checks() {
 	check_os
-	# Check distribution
 	check_distribution
-	# Check sudo
 	check_privileges
-	# Check dependencies
 	check_dependencies
 }
