@@ -26,13 +26,10 @@
 tabs 2
 clear
 
-# Title of script set
 TITLE="Arch Linux GNOME Post-Install Script"
 
-# Main
 function main() {
 	echo_message header "Starting 'main' function"
-	# Draw window
 	MAIN=$(eval $(resize) && whiptail \
 		--notags \
 		--title "$TITLE" \
@@ -43,7 +40,7 @@ function main() {
 		'install_favs' 'Install preferred applications' \
 		'install_favs_dev' 'Install preferred development tools' \
 		'install_favs_utils' 'Install preferred utilities' \
-    'install_favs_yaourt' 'Install packaged from yaourt' \
+		'install_favs_yaourt' 'Install packaged from yaourt' \
 		'install_codecs' 'Install multimedia codecs' \
 		'install_gnome' 'Install preferred GNOME software' \
 		'install_fonts' 'Install additional fonts' \
@@ -52,21 +49,17 @@ function main() {
 		'system_configure' 'Configure system' \
 		'system_cleanup' 'Cleanup the system' \
 		3>&1 1>&2 2>&3)
-	# check exit status
 	if [ $? = 0 ]; then
 		echo_message header "Starting '$MAIN' function"
 		$MAIN
 	else
-		# Quit
 		quit
 	fi
 }
 
-# Quit
 function quit() {
 	echo_message header "Starting 'quit' function"
 	echo_message title "Exiting $TITLE..."
-	# Draw window
 	if (whiptail --title "Quit" --yesno "Are you sure you want quit?" 8 56); then
 		echo_message welcome 'Thanks for using!'
 		exit 99
@@ -75,31 +68,22 @@ function quit() {
 	fi
 }
 
-# Import Functions
 function import_functions() {
 	DIR="functions"
-	# iterate through the files in the 'functions' folder
 	for FUNCTION in $(dirname "$0")/$DIR/*; do
-		# skip directories
 		if [[ -d $FUNCTION ]]; then
 			continue
-		# exclude markdown readmes
 		elif [[ $FUNCTION == *.md ]]; then
 			continue
 		elif [[ -f $FUNCTION ]]; then
-			# source the function file
 			. $FUNCTION
 		fi
 	done
 }
 
-# Import main functions
 import_functions
-# Welcome message
 echo_message welcome "$TITLE"
-# Run system checks
 system_checks
-# main
 while :; do
 	main
 done

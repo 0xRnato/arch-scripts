@@ -1,0 +1,14 @@
+autoconf
+automake
+binutils
+bison
+fakeroot
+flex
+groff
+libtool
+m4
+make
+patch
+pkgconf
+sudo
+systemd

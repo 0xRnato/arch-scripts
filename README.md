@@ -34,14 +34,7 @@ export PATH=${PATH}:~/arch-scripts/
 
 ## TODO
 
-- [ ] gsettings
-- [ ] extensions
-- [ ] dracula theme
-- [ ] paper theme
 - [ ] clone github repositories
-- [ ] xdg-settings
-- [ ] htop install and config
-- [ ] bluethooh
-- [ ] https://www.archlinux.org/groups/
-- [ ] reoditory keys
-- [ ] /etc/pacman.d/hooks/mirrorupgrade.hook
+- [ ] install dracula green theme
+- [ ] install arch linux GNOME
+- [ ] install arch linux Deepin
