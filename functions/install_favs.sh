@@ -1,24 +1,28 @@
 #!/bin/bash
 
 # Install preferred apps
-function install_favs {
+function install_favs() {
 	# Update the list of packages in 'data/favs.list' to suit your preferences
 	install_from_list "preferred applications" "favs" main
 }
 
+function install_favs_yaourt() {
+	install_from_yaourt_list "preferred applications from yaourt" "favs-yaourt" main
+}
+
 # Install preferred development tools
-function install_favs_dev {
+function install_favs_dev() {
 	# Update the list of packages in 'data/favs-dev.list' to suit your preferences
 	install_from_list "preferred development tools" "favs-dev" main
 }
 
 # Install preferred utilities
-function install_favs_utils {
+function install_favs_utils() {
 	# Update the list of packages in 'data/favs-utils.list' to suit your preferences
 	install_from_list "preferred utilities" "favs-utils" main
 }
 
 # Install preferred codecs
-function install_codecs {
-  install_from_list "multimedia codecs" "codecs" main
+function install_codecs() {
+	install_from_list "multimedia codecs" "codecs" main
 }

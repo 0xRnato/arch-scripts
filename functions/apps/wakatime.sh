@@ -16,8 +16,7 @@ function install_wakatime() {
 		echo_message info "Installing $NAME..."
 		superuser_do "pip install wakatime"
 		git clone https://github.com/gjsheep/bash-wakatime.git ~/workspace/bash-wakatime
-		echo_message question "Enter your API key:"
-		read API_KEY
+		echo_message question "Enter your API key:" && read API_KEY
 		echo -e "\n[settings]\napi_key = $API_KEY\nstatus_bar_icon = true" >~/.wakatime.cfg
 		# Done
 		echo_message success "Installation of $NAME complete."

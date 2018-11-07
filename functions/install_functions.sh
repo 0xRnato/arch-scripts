@@ -84,6 +84,51 @@ function install_from_list() {
 	fi
 }
 
+# Install from list function
+#
+# ${1} = Name
+# ${2} = list-name
+# ${3} = return_function
+
+function install_from_yaourt_list() {
+	echo_message title "Starting installation of ${1}..."
+	# Variables
+	LIST=$(dirname "$0")'/data/'${2}'.list'
+	# Draw window
+	if (eval $(resize) && whiptail \
+		--title "Install ${2^}" \
+		--yesno "Current list of packages that will be installed: \n\n$(cat ${LIST}) \n\nWould you like to proceed?" \
+		$LINES $COLUMNS $(($LINES - 12)) \
+		--scrolltext \
+		3>&1 1>&2 2>&3); then
+		# Install loop
+		for PACKAGE in $(cat $LIST); do
+			# If package is not installed
+			if [ $(check_package_installed $PACKAGE) != 0 ]; then
+				# Install package
+				echo_message warning "Package '$PACKAGE' is not installed. Installing..."
+				# Admin privileges
+				superuser_do "yaourt -S $PACKAGE"
+				# Check if failed
+				if [[ $? != 0 ]]; then
+					echo_message error "Error installing '$PACKAGE'."
+				fi
+			else
+				# Show already installed message
+				echo_message info "Package '$PACKAGE' is installed."
+			fi
+		done
+		# Finished
+		echo_message success "Installation of ${1} complete."
+		whiptail --title "Finished" --msgbox "Installation of ${1} is complete." 8 56
+		${3}
+	else
+		# Cancelled
+		echo_message info "Installation of ${1} cancelled."
+		${3}
+	fi
+}
+
 # Install yaourt package
 #
 # ${1} = Name

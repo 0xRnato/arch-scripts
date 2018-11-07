@@ -23,16 +23,25 @@ Adding additional functions is as easy as editing one of the many already includ
 You use these scripts, you can just run the main script from the root of the source folder:
 
 ```bash
-./archlinux-gnome-config.sh
+./arch-scripts.sh
 ```
 
 Alternatively, if you use `bash` and cloned this to your home folder, add the following to your `.bashrc` to run this script on-demand.
 
 ```bash
-export PATH=${PATH}:~/archlinux-gnome-config/
+export PATH=${PATH}:~/arch-scripts/
 ```
 
 ## TODO
 
-- [ ] git config
-- [ ] set br keyboard
+- [ ] gsettings
+- [ ] extensions
+- [ ] dracula theme
+- [ ] paper theme
+- [ ] clone github repositories
+- [ ] xdg-settings
+- [ ] htop install and config
+- [ ] bluethooh
+- [ ] https://www.archlinux.org/groups/
+- [ ] reoditory keys
+- [ ] /etc/pacman.d/hooks/mirrorupgrade.hook
