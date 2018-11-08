@@ -1,0 +1,10 @@
+xf86-input-mouse
+xf86-input-keyboard
+libinput
+xf86-input-libinput
+acpid
+ntp
+dbus
+cups
+avahi
+cronie

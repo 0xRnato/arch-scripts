@@ -49,3 +49,6 @@ sysprof
 gedit-code-assistance
 gnome-code-assistance
 gnome-usage
+libnautilus-extension
+nautilus-terminal
+seahorse-nautilus

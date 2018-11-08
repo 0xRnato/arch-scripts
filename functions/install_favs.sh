@@ -17,5 +17,7 @@ function install_favs_utils() {
 }
 
 function install_codecs() {
-	install_from_list "multimedia codecs" "codecs" main
+	install_from_list "multimedia codecs" "codecs" install_codecs
+  superuser_do "systemctl enable acpid.service ntpd.service avahi-daemon.service org.cups.cupsd.service"
+  main
 }

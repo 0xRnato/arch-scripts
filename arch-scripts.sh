@@ -48,6 +48,7 @@ function main() {
 		'setup_dotfiles' 'Configure dotfiles' \
 		'system_configure' 'Configure system' \
 		'system_cleanup' 'Cleanup the system' \
+		'install_base' 'Install Arch Linux Base' \
 		3>&1 1>&2 2>&3)
 	if [ $? = 0 ]; then
 		echo_message header "Starting '$MAIN' function"

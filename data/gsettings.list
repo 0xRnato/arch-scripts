@@ -14,7 +14,7 @@ gsettings set org.gnome.shell disable-user-extensions false
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update notify true
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update howmuch 2
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update update-cmd "terminator -e 'sh -c  \"sudo pacman -Syyyu --noconfirm; yaourt -Syyuua --noconfirm; echo Done - Press enter to exit; read\" '"
-gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update auto-expand-list 1
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update auto-expand-list 0
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/ set org.gnome.shell.extensions.arch-update package-manager 'pamac-manager'
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/ set org.gnome.shell.extensions.user-theme name 'Ant-Dracula-Green'
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/topicons-redux@pop-planet.info/schemas/ set org.gnome.shell.extensions.topicons-redux offset 20
@@ -56,6 +56,7 @@ gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.desktop.interface icon-theme 'Paper'
 gsettings set org.gnome.desktop.interface gtk-theme 'Ant-Dracula-Green'
 gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.interface enable-animations true
 gsettings set org.gnome.desktop.notifications application-children "['chromium', 'spotify', 'org-gnome-chromegnomeshell', 'org-gnome-nautilus', 'telegramdesktop']"
 gsettings set org.gnome.desktop.notifications show-in-lock-screen false
 gsettings set org.gnome.desktop.notifications.application:/org/gnome/desktop/notifications/application/postman/ application-id 'postman.desktop'
@@ -109,6 +110,8 @@ gsettings set org.gnome.desktop.privacy remove-old-trash-files true
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
 gsettings set org.gnome.desktop.wm.preferences focus-mode 'click'
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'minimize'
+gsettings set org.gnome.desktop.wm.preferences action-double-click-titlebar 'toggle-maximize'
+gsettings set org.gnome.desktop.wm.preferences action-right-click-titlebar 'menu'
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
 gsettings set org.gnome.desktop.datetime automatic-timezone true
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/rnato/Pictures/b.png'

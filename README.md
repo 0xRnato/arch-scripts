@@ -36,5 +36,4 @@ export PATH=${PATH}:~/arch-scripts/
 
 - [ ] clone github repositories
 - [ ] install dracula green theme
-- [ ] install arch linux GNOME
 - [ ] install arch linux Deepin

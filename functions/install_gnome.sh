@@ -2,6 +2,7 @@
 
 function install_gnome_apps() {
 	install_from_list "preferred GNOME apps" "gnome-apps" install_gnome
+  superuser_do "systemctl enable gdm.service NetworkManager.service"
 }
 
 function install_shell_extensions() {
@@ -18,7 +19,7 @@ function install_gnome() {
 		--ok-button "Install" \
 		--cancel-button "Go Back" \
 		$LINES $COLUMNS $(($LINES - 12)) \
-		'install_gnome_apps' 'GNOME Core Apps' \
+		'install_gnome_apps' 'GNOME Apps' \
 		'install_shell_extensions' 'GNOME Shell Extensions' \
 		3>&1 1>&2 2>&3)
 	if [ $? = 0 ]; then
