@@ -38,8 +38,8 @@ EOF
 	echo_message info "Format the partitions"
 	mkfs.fat -F32 /dev/sda1
 	mkfs.ext2 /dev/sda2
-	cryptosetup luksFormat /dev/sda3
-	cryptosetup open --type luks /dev/sda3 lvm
+	cryptsetup luksFormat /dev/sda3
+	cryptsetup open --type luks /dev/sda3 lvm
 	pvcreate --dataalignment 1m /dev/mapper/lvm
 	vgcreate volgroup0 /dev/mapper/lvm
 	vgcreate volgroup0 /dev/mapper/lvm
@@ -90,19 +90,19 @@ EOF
 	systemctl enable dhcpcd.service
 	echo_message info "Boot loader"
 	pacman -S intel-ucode grub os-prober efibootmgr dosfstools mtools
-  sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck)/g'
-  GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda3:volgroup0 quiet"
-  mkdir /boot/EFI
-  mount /dev/sda1 /boot/EFI
-  grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=grub_uefi --recheck
-  cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
-  grub-mkconfig -o /boot/grub/grub.cfg
-  echo_message info "Swap file"
-  fallocate -l 24G /swapfile
-  chmod 600 /swapfile
-  mkswap /swapfile
-  echo '/swapfile none swap sw 0 0 ' | tee -a /etc/fstab
-  echo_message info "Initramfs"
+	sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck)/g'
+	GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda3:volgroup0 quiet"
+	mkdir /boot/EFI
+	mount /dev/sda1 /boot/EFI
+	grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=grub_uefi --recheck
+	cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+	grub-mkconfig -o /boot/grub/grub.cfg
+	echo_message info "Swap file"
+	fallocate -l 24G /swapfile
+	chmod 600 /swapfile
+	mkswap /swapfile
+	echo '/swapfile none swap sw 0 0 ' | tee -a /etc/fstab
+	echo_message info "Initramfs"
 	mkinitcpio -p linux
 	echo_message success "Installation finished"
 	echo_message info "Rebooting the machine..."
