@@ -37,3 +37,7 @@ export PATH=${PATH}:~/arch-scripts/
 - [ ] clone github repositories
 - [ ] install dracula green theme
 - [ ] install arch linux Deepin
+- [ ] install seahorse and put it on "System Tools" group
+- [ ] update pacman.conf
+- [ ] update gnupg/gpg keys
+- [ ] update package installation list

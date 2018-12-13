@@ -16,6 +16,10 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_profile ]; then
+	. ~/.bash_profile
+fi
+
 if ! shopt -oq posix; then
 	if [ -f /usr/share/bash-completion/bash_completion ]; then
 		. /usr/share/bash-completion/bash_completion
