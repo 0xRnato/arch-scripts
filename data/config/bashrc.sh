@@ -1,24 +1,15 @@
-# custom ~/.bashrc
+#
+# ~/.bashrc
+#
 
-case $- in
-*i*) ;;
-*) return ;;
-esac
-
-HISTCONTROL=ignoreboth
-
-shopt -s histappend
-
-HISTSIZE=20000
-HISTFILESIZE=20000
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-if [ -f ~/.bash_profile ]; then
-	. ~/.bash_profile
-fi
+[[ -f ~/.bash_profile ]] && . ~/.bash_profile
 
 if ! shopt -oq posix; then
 	if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -69,3 +60,6 @@ else
 	fi
 
 fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
