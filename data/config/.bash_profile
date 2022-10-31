@@ -19,6 +19,7 @@ if [ -f "$HOME/workspace/bash-wakatime/bash-wakatime.sh" ]; then
 fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 GPG_TTY=$(tty)
 VISUAL="nano"
