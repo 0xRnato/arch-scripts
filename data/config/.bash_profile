@@ -18,5 +18,7 @@ if [ -f "$HOME/workspace/bash-wakatime/bash-wakatime.sh" ]; then
 	source $HOME/workspace/bash-wakatime/bash-wakatime.sh
 fi
 
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
 GPG_TTY=$(tty)
 VISUAL="nano"
