@@ -16,3 +16,4 @@ alias df='df -h'
 alias logerrors='sudo journalctl -p 3 -xb'
 alias code="code --disable-gpu"
 alias git=hub
+alias reflector='sudo reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist'
