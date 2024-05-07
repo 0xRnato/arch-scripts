@@ -18,3 +18,5 @@ alias code="code --disable-gpu"
 alias git=hub
 alias reflector='sudo reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias update='sudo pacman -Syyuu --noconfirm && yay -Syyuua --noconfirm'
+alias tiled='tiled &'
+alias texturepacker='TexturePackerGUI &'
