@@ -54,3 +54,7 @@ else
 	fi
 
 fi
+
+source /usr/share/nvm/init-nvm.sh
+#export DISPLAY=:0
+#export QT_QPA_PLATFORM=xcb
